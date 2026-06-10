@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://manojkumarpanduga.vercel.app/sitemap-index.xml
