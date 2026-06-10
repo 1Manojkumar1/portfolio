@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CategoryIcons: Record<string, React.ReactNode> = {
   "Frontend": (
@@ -23,8 +23,35 @@ const CategoryIcons: Record<string, React.ReactNode> = {
   ),
 };
 
+const Skeleton = () => (
+  <div className="text-left pt-3 md:pt-9">
+    <h3 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6">
+      What I do?
+    </h3>
+    <ul className="space-y-4 mt-4 text-lg">
+      {[1, 2, 3, 4].map((i) => (
+        <li key={i} className="w-full">
+          <div className="md:w-[400px] w-full bg-[#1414149c] rounded-2xl border border-[var(--white-icon-tr)] overflow-hidden">
+            <div className="flex items-center gap-3 p-4">
+              <div className="w-6 h-6 rounded bg-[var(--white-icon-tr)] animate-pulse" />
+              <div className="flex-1">
+                <div className="h-5 w-28 rounded bg-[var(--white-icon-tr)] animate-pulse" />
+              </div>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
 const SkillsList = () => {
   const [openItem, setOpenItem] = useState<string | null>(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
   const skills: Record<string, string[]> = {
     "Frontend": [
@@ -49,6 +76,8 @@ const SkillsList = () => {
   const toggleItem = (item: string) => {
     setOpenItem(openItem === item ? null : item);
   };
+
+  if (!loaded) return <Skeleton />;
 
   return (
     <div className="text-left pt-3 md:pt-9">
