@@ -80,6 +80,7 @@ import SkillsList from "../React/SkillsList.tsx";
         <a
           href="/resume.pdf"
           target="_blank"
+          download
           aria-label="Resume"
           class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
         >
@@ -100,12 +101,12 @@ import SkillsList from "../React/SkillsList.tsx";
     <LogoWall />
 
     <div class="flex flex-col lg:flex-row items-center gap-8">
-      <SkillsList client:load />
+      <SkillsList client:visible />
       <div
         class="flex justify-center md:w-full md:h-[292px] size-[290px] pt-3 md:pt-9 md:ml-16"
       >
         <LetterGlitch
-          client:load
+          client:visible
           glitchColors={["#5e4491", "#A476FF", "#241a38"]}
           glitchSpeed={33}
           centerVignette={false}
