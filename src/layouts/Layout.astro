@@ -1,4 +1,6 @@
 ---
+import ClickSpark from "@/components/ClickSpark";
+
 interface Props {
   title: string;
 }
@@ -73,9 +75,18 @@ const { title } = Astro.props;
     </script>
   </head>
   <body class="bg-[--background] sm:px-28 lg:px-20 px-9">
-    <main>
-      <slot />
-    </main>
+    <ClickSpark
+      sparkColor="#ffffff"
+      sparkSize={10}
+      sparkRadius={20}
+      sparkCount={8}
+      duration={400}
+      client:load
+    >
+      <main>
+        <slot />
+      </main>
+    </ClickSpark>
   </body>
 </html>
 
