@@ -64,6 +64,14 @@ const projects: Project[] = [
               <div
                 class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4 h-48 md:h-72 flex items-center justify-center p-6 relative"
               >
+                <div
+                  class="absolute inset-0"
+                  style={`background: ${project.gradient}`}
+                >
+                  <h4 class="text-3xl md:text-4xl font-bold text-white text-center drop-shadow-lg absolute inset-0 flex items-center justify-center">
+                    {project.title}
+                  </h4>
+                </div>
                 <img
                   src={`/images/${project.slug}.png`}
                   alt={project.title}
@@ -71,16 +79,8 @@ const projects: Project[] = [
                   height="400"
                   class="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
-                  onerror="this.style.display='none';console.debug('Image load failed:',this.src)"
+                  onerror="this.style.display='none'"
                 />
-                <div
-                  class="absolute inset-0 flex items-center justify-center"
-                  style={`background: ${project.gradient}`}
-                >
-                  <h4 class="text-3xl md:text-4xl font-bold text-white text-center drop-shadow-lg">
-                    {project.title}
-                  </h4>
-                </div>
               </div>
               <div class="flex flex-col px-3 gap-3">
                 <div class="flex-grow">
